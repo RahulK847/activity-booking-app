@@ -1,133 +1,82 @@
-# 🌟 **Activity Booking API**
+# Activity Booking API
 
-A simple REST API for a basic activity booking app.
+A simple REST API for a Basic Activity Booking App
 
----
+## Repository
 
-## 📂 Repository
+- GitHub: [https://github.com/RahulK847/activity-booking-app](https://github.com/RahulK847/activity-booking-app.git)
 
-- **GitHub**: [https://github.com/RahulK847/activity-booking-app](https://github.com/RahulK847/activity-booking-app.git)
+## Live Demo
 
-## 🚀 Live Demo
+- Render: [https://activity-booking-app-0b52.onrender.com](https://activity-booking-app-0b52.onrender.com)
 
-- **Render**: [https://activity-booking-app-0b52.onrender.com](https://activity-booking-app-0b52.onrender.com)
+## Features
 
----
+- User Registration & Login (JWT Authentication)
+- List Activities (Public)
+- Book Activities (Authenticated Users Only)
+- View User's Bookings
 
-## ✨ Features
+## Tech Stack
 
-✅ User Registration & Login (JWT Authentication)  
-✅ List Activities (Public)  
-✅ Book Activities (Authenticated Users Only)  
-✅ View User’s Bookings
+- Node.js with Express.js
+- MongoDB with Mongoose (Atlas for cloud hosting)
+- JWT for Authentication
+- Express Validator for Input Validation
+- Bcrypt for Password Hashing
 
----
+## API Endpoints
 
-## 🛠 Tech Stack
+### Users
 
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB (Atlas), Mongoose
-- **Auth**: JWT (JSON Web Tokens)
-- **Security**: Bcrypt for password hashing
-- **Validation**: Express Validator
+- **Register User**: `POST /api/users/register`
+  - Body: `{ name, email, phone, password }`
+- **Login User**: `POST /api/users/login`
+  - Body: `{ email, password }`
+  - Returns: JWT token
 
----
+### Activities
 
-## 📌 API Endpoints
+- **Get All Activities**: `GET /api/activities`
+  - Public endpoint
+- **Get Single Activity**: `GET /api/activities/:id`
+  - Public endpoint
+- **Create Activity**: `POST /api/activities`
+  - Protected endpoint
+  - Body: `{ title, description, location, dateTime }`
 
-### 🔑 Users
+### Bookings
 
-- **Register User**  
-  `POST /api/users/register`  
-  **Body:**
+- **Book an Activity**: `POST /api/bookings`
+  - Protected endpoint
+  - Body: `{ activityId }`
+- **Get My Bookings**: `GET /api/bookings/me`
+  - Protected endpoint
 
-  ```json
-  {
-    "name": "John Doe",
-    "email": "john@example.com",
-    "phone": "1234567890",
-    "password": "your_password"
-  }
-  ```
+## Setup Instructions (Local)
 
-- **Login User**  
-  `POST /api/users/login`  
-  **Body:**
-  ```json
-  {
-    "email": "john@example.com",
-    "password": "your_password"
-  }
-  ```
-  **Returns:** JWT token
+1. Clone the repository and install dependencies:
+   ```
+   git clone https://github.com/RahulK847/activity-booking-app.git
+   cd activity-booking-app
+   npm install
+   ```
+2. Create a `.env` file in the root directory:
+   ```
+   PORT=5000
+   MONGODB_URI=mongodb://localhost:27017/activity-booking-app
+   JWT_SECRET=your_jwt_secret_key_here
+   JWT_EXPIRE=30d
+   ```
+3. Start the server:
 
----
+   ```
+   npm run dev
+   ```
 
-### 🎯 Activities
-
-- **Get All Activities** (Public)  
-  `GET /api/activities`
-
-- **Get Single Activity** (Public)  
-  `GET /api/activities/:id`
-
-- **Create Activity** (Protected)  
-  `POST /api/activities`  
-  **Body:**
-  ```json
-  {
-    "title": "Yoga Class",
-    "description": "Morning yoga session",
-    "location": "Community Center",
-    "dateTime": "2025-06-01T08:00:00Z"
-  }
-  ```
-
----
-
-### 📅 Bookings
-
-- **Book an Activity** (Protected)  
-  `POST /api/bookings`  
-  **Body:**
-
-  ```json
-  {
-    "activityId": "activity_object_id"
-  }
-  ```
-
-- **Get My Bookings** (Protected)  
-  `GET /api/bookings/me`
-
----
-
-## ⚙️ Setup Instructions (Local)
-
-1️⃣ **Clone the repository and install dependencies:**
-
-```bash
-git clone https://github.com/RahulK847/activity-booking-app.git
-cd activity-booking-app
-npm install
-```
-
-2️⃣ **Create a `.env` file in the root directory:**
-
-```env
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/activity-booking-app
-JWT_SECRET=your_jwt_secret_key_here
-JWT_EXPIRE=30d
-```
-
-3️⃣ **Start the server:**
-
-```bash
-npm run dev
-```
-
----
+4. **Test your API using Postman:**
+   - Import the provided Postman collection.
+   - Replace `https://activity-booking-app-0b52.onrender.com` with your Render URL in all requests.
 
 ## 🔍 API Testing
 
