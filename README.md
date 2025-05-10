@@ -8,7 +8,7 @@ A simple REST API for a Basic Activity Booking App similar to MeetX.
 
 ## Live Demo
 
-- Render: _Coming soon!_ (Add your Render deployment URL here after deployment)
+- Render: [https://activity-booking-app-0b52.onrender.com](https://activity-booking-app-0b52.onrender.com)
 
 ## Features
 
@@ -69,38 +69,10 @@ A simple REST API for a Basic Activity Booking App similar to MeetX.
    JWT_EXPIRE=30d
    ```
 3. Start the server:
+
    ```
    npm run dev
    ```
-
-## Deployment Instructions (Render + MongoDB Atlas)
-
-1. **Push your code to GitHub.**
-2. **Create a free MongoDB Atlas cluster.**
-
-   - Create a database user and whitelist your IP (or 0.0.0.0/0 for open access).
-   - Get your connection string from Atlas. It looks like:
-     ```
-     mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/?retryWrites=true&w=majority
-     ```
-   - Add your database name after `.net/` and before `?`, e.g.:
-     ```
-     mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/activity-booking-app?retryWrites=true&w=majority
-     ```
-   - If your password contains special characters (like @), URL-encode them (e.g., `@` becomes `%40`).
-
-3. **Deploy to Render:**
-
-   - Go to [Render](https://render.com) and create a new Web Service.
-   - Connect your GitHub repo.
-   - Set build command: `npm install`
-   - Set start command: `node index.js` or `npm start`
-   - Add environment variables:
-     - `PORT` (Render sets this automatically, but you can add it as 10000)
-     - `MONGODB_URI` (your Atlas connection string with database name)
-     - `JWT_SECRET` (your JWT secret key)
-     - `JWT_EXPIRE` (e.g., 30d)
-   - Deploy and wait for your Render URL (e.g., `https://your-app-name.onrender.com`)
 
 4. **Test your API using Postman:**
    - Import the provided Postman collection.
@@ -109,6 +81,10 @@ A simple REST API for a Basic Activity Booking App similar to MeetX.
 ## API Testing
 
 A Postman collection is included in the repository for testing all endpoints.
+
+```
+Import activity-booking-api.postman_collection.json into your Postman for API Testing
+```
 
 ## License
 
